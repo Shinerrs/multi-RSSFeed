@@ -14,6 +14,18 @@
 		E29EE9601B0CA65E00A6A928 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29EE95F1B0CA65E00A6A928 /* Images.xcassets */; };
 		E29EE9631B0CA65E00A6A928 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29EE9611B0CA65E00A6A928 /* LaunchScreen.xib */; };
 		E29EE96F1B0CA65F00A6A928 /* multi_RSSFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE96E1B0CA65F00A6A928 /* multi_RSSFeedTests.swift */; };
+		E29EE9791B0CA6D200A6A928 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9781B0CA6D200A6A928 /* HomeVC.swift */; };
+		E29EE97A1B0CA6D200A6A928 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9781B0CA6D200A6A928 /* HomeVC.swift */; };
+		E29EE97C1B0CA6DC00A6A928 /* RSSAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE97B1B0CA6DC00A6A928 /* RSSAddVC.swift */; };
+		E29EE97D1B0CA6DC00A6A928 /* RSSAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE97B1B0CA6DC00A6A928 /* RSSAddVC.swift */; };
+		E29EE97F1B0CA6E600A6A928 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE97E1B0CA6E600A6A928 /* LoginVC.swift */; };
+		E29EE9801B0CA6E600A6A928 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE97E1B0CA6E600A6A928 /* LoginVC.swift */; };
+		E29EE9821B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9811B0CA6F800A6A928 /* RSSRemoveVC.swift */; };
+		E29EE9831B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9811B0CA6F800A6A928 /* RSSRemoveVC.swift */; };
+		E29EE9851B0CA70200A6A928 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9841B0CA70200A6A928 /* SignupVC.swift */; };
+		E29EE9861B0CA70200A6A928 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9841B0CA70200A6A928 /* SignupVC.swift */; };
+		E2DAEA681B0CCD2E00A1633E /* RSSListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DAEA671B0CCD2E00A1633E /* RSSListVC.swift */; };
+		E2DAEA6A1B0CCD4900A1633E /* RSSDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DAEA691B0CCD4900A1633E /* RSSDisplayVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +50,13 @@
 		E29EE9681B0CA65E00A6A928 /* multi-RSSFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "multi-RSSFeedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29EE96D1B0CA65E00A6A928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E29EE96E1B0CA65F00A6A928 /* multi_RSSFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multi_RSSFeedTests.swift; sourceTree = "<group>"; };
+		E29EE9781B0CA6D200A6A928 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E29EE97B1B0CA6DC00A6A928 /* RSSAddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSAddVC.swift; sourceTree = "<group>"; };
+		E29EE97E1B0CA6E600A6A928 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E29EE9811B0CA6F800A6A928 /* RSSRemoveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSRemoveVC.swift; sourceTree = "<group>"; };
+		E29EE9841B0CA70200A6A928 /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		E2DAEA671B0CCD2E00A1633E /* RSSListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSListVC.swift; sourceTree = "<group>"; };
+		E2DAEA691B0CCD4900A1633E /* RSSDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSDisplayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +100,18 @@
 			children = (
 				E29EE9551B0CA65E00A6A928 /* AppDelegate.swift */,
 				E29EE95A1B0CA65E00A6A928 /* ViewController.swift */,
+				E29EE9781B0CA6D200A6A928 /* HomeVC.swift */,
+				E29EE9811B0CA6F800A6A928 /* RSSRemoveVC.swift */,
+				E29EE97B1B0CA6DC00A6A928 /* RSSAddVC.swift */,
+				E29EE9841B0CA70200A6A928 /* SignupVC.swift */,
 				E29EE95C1B0CA65E00A6A928 /* Main.storyboard */,
+				E29EE97E1B0CA6E600A6A928 /* LoginVC.swift */,
 				E29EE95F1B0CA65E00A6A928 /* Images.xcassets */,
 				E29EE9611B0CA65E00A6A928 /* LaunchScreen.xib */,
 				E29EE9571B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld */,
 				E29EE9531B0CA65E00A6A928 /* Supporting Files */,
+				E2DAEA671B0CCD2E00A1633E /* RSSListVC.swift */,
+				E2DAEA691B0CCD4900A1633E /* RSSDisplayVC.swift */,
 			);
 			path = "multi-RSSFeed";
 			sourceTree = "<group>";
@@ -215,9 +241,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2DAEA6A1B0CCD4900A1633E /* RSSDisplayVC.swift in Sources */,
+				E29EE9851B0CA70200A6A928 /* SignupVC.swift in Sources */,
+				E29EE97C1B0CA6DC00A6A928 /* RSSAddVC.swift in Sources */,
 				E29EE95B1B0CA65E00A6A928 /* ViewController.swift in Sources */,
+				E29EE9821B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */,
+				E29EE97F1B0CA6E600A6A928 /* LoginVC.swift in Sources */,
+				E29EE9791B0CA6D200A6A928 /* HomeVC.swift in Sources */,
 				E29EE9591B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld in Sources */,
 				E29EE9561B0CA65E00A6A928 /* AppDelegate.swift in Sources */,
+				E2DAEA681B0CCD2E00A1633E /* RSSListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29EE9861B0CA70200A6A928 /* SignupVC.swift in Sources */,
 				E29EE96F1B0CA65F00A6A928 /* multi_RSSFeedTests.swift in Sources */,
+				E29EE97A1B0CA6D200A6A928 /* HomeVC.swift in Sources */,
+				E29EE9801B0CA6E600A6A928 /* LoginVC.swift in Sources */,
+				E29EE9831B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */,
+				E29EE97D1B0CA6DC00A6A928 /* RSSAddVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +447,7 @@
 				E29EE9741B0CA65F00A6A928 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E29EE9751B0CA65F00A6A928 /* Build configuration list for PBXNativeTarget "multi-RSSFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +456,7 @@
 				E29EE9771B0CA65F00A6A928 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
