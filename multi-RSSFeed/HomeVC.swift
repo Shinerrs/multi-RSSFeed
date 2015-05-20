@@ -1,10 +1,10 @@
 //
 //  HomeVC.swift
-//  SwiftLoginScreen
+//  multi-RSSFeed
 //
-//  Created by Dipin Krishna on 31/07/14.
-//  Copyright (c) 2014 Dipin Krishna. All rights reserved.
-
+//  Created by Mark Shine on 16/04/2015.
+//  Copyright (c) 2015 Mark Shine. All rights reserved.
+//
 import UIKit
 
 class HomeVC: UIViewController, UITableViewDataSource{
@@ -14,7 +14,7 @@ class HomeVC: UIViewController, UITableViewDataSource{
     @IBOutlet var usernameLabel : UILabel!
     var tableData = [String]()
     var URLData = [String]()
-    
+    var selectOpt:String!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     let textCellIdentifier = "TextCell"
     
@@ -64,7 +64,8 @@ class HomeVC: UIViewController, UITableViewDataSource{
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
-        println(URLData[row])
+        self.selectOpt = URLData[row]
+        self.performSegueWithIdentifier("RSSFeedList", sender: self)
     }
     
     
@@ -162,6 +163,18 @@ class HomeVC: UIViewController, UITableViewDataSource{
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        // Create a variable that you want to send
+        
+        if segue.identifier == "RSSFeedList" {
+        // Create a new variable to store the instance of PlayerTableViewController
+        let destinationVC = segue.destinationViewController as RSSListVC
+        destinationVC.selectOpt = self.selectOpt
+        }
+    }
+
+    
     @IBAction func logoutTapped(sender : UIButton) {
         
         let appDomain = NSBundle.mainBundle().bundleIdentifier

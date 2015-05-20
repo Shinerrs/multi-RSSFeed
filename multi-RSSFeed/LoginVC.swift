@@ -1,11 +1,10 @@
 //
 //  LoginVC.swift
-//  SwiftLoginScreen
+//  multi-RSSFeed
 //
-//  Created by Dipin Krishna on 31/07/14.
-//  Copyright (c) 2014 Dipin Krishna. All rights reserved.
+//  Created by Mark Shine on 16/04/2015.
+//  Copyright (c) 2015 Mark Shine. All rights reserved.
 //
-
 import UIKit
 
 class LoginVC: UIViewController,UITextFieldDelegate {

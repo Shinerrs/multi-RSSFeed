@@ -1,9 +1,9 @@
 //
 //  RSSAddVC.swift
-//  SwiftLoginScreen
+//  multi-RSSFeed
 //
-//  Created by Mark Shine on 19/05/2015.
-//  Copyright (c) 2015 Dipin Krishna. All rights reserved.
+//  Created by Mark Shine on 16/04/2015.
+//  Copyright (c) 2015 Mark Shine. All rights reserved.
 //
 
 
