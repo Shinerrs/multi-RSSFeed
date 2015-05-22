@@ -96,9 +96,7 @@ class HomeVC: UIViewController, UITableViewDataSource{
     
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            let row = indexPath.row
-            self.idToDelete = IDData[row]
-            RemoveRSS();
+            
         }
     }
     
@@ -130,7 +128,7 @@ class HomeVC: UIViewController, UITableViewDataSource{
                 var postLength:NSString = String( postData.length )
                 
                 var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-                request.timeoutInterval = 30
+                request.timeoutInterval = 10
                 request.HTTPMethod = "POST"
                 request.HTTPBody = postData
                 request.setValue(postLength, forHTTPHeaderField: "Content-Length")
@@ -208,7 +206,7 @@ class HomeVC: UIViewController, UITableViewDataSource{
         var postLength:NSString = String( postData.length )
         
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.timeoutInterval = 30
+        request.timeoutInterval = 10
         request.HTTPMethod = "POST"
         request.HTTPBody = postData
         request.setValue(postLength, forHTTPHeaderField: "Content-Length")
@@ -259,7 +257,12 @@ class HomeVC: UIViewController, UITableViewDataSource{
                         
                     }
                 }else{
-                    
+                    var alertView:UIAlertView = UIAlertView()
+                    alertView.title = "RSS Retrieve Failed"
+                    alertView.message = "The RSS Feed has failed, please try again."
+                    alertView.delegate = self
+                    alertView.addButtonWithTitle("OK")
+                    alertView.show()
                 }
             }
         })
