@@ -9,29 +9,32 @@
 
 import UIKit
 
-class RSSAddVC: UIViewController{
+class RSSEditVC: UIViewController{
     
     
     
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var urlTF: UITextField!
-    @IBOutlet weak var viewTitle: UILabel!
+   
     
-    var sTitle:String!
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var urlLabel: UITextField!
+    var sID:String!
+    var sName:String!
+    var sUrl:String!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     let textCellIdentifier = "TextCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
+        nameLabel.text = sName
+        urlLabel.text = sUrl
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
@@ -59,9 +62,9 @@ class RSSAddVC: UIViewController{
         } else { return false }
     }
     
-    @IBAction func SaveButton(sender: AnyObject) {
-        var url:String = urlTF.text
-        var name:NSString = nameTF.text
+    @IBAction func EditButton(sender: AnyObject) {
+        var url:String = urlLabel.text
+        var name:NSString = nameLabel.text
         if verifyUrl(url){
         if ( name.isEqualToString("")) {
             var alertView:UIAlertView = UIAlertView()
@@ -72,9 +75,9 @@ class RSSAddVC: UIViewController{
             alertView.show()
         } else {
             var username = prefs.valueForKey("USERNAME") as String
-            var post:NSString = "rssurl=\(url)&rssName=\(name)&username=\(username)"
+            var post:NSString = "rssurl=\(url)&rssName=\(name)&id=\(sID)"
             NSLog("PostData: %@",post);
-            var url:NSURL = NSURL(string: "http://zippy-meteor-60-226751.euw1.nitrousbox.com/addrss.php")!
+            var url:NSURL = NSURL(string: "http://zippy-meteor-60-226751.euw1.nitrousbox.com/editrss.php")!
             var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
             
             var postLength:NSString = String( postData.length )
@@ -105,7 +108,7 @@ class RSSAddVC: UIViewController{
                         println("jsonArray: \(jsonArray)")
                         dispatch_async(dispatch_get_main_queue()) {
                             
-                                var success:Int = jsonArray.valueForKey("success") as Int
+                            var success:Int = jsonArray.valueForKey("success") as Int
                             if success == 1 {
                                 var alertView:UIAlertView = UIAlertView()
                                 alertView.title = "RSS Add Successfully"
@@ -113,7 +116,7 @@ class RSSAddVC: UIViewController{
                                 alertView.delegate = self
                                 alertView.addButtonWithTitle("OK")
                                 alertView.show()
- 
+                                
                             }else{
                                 var alertView:UIAlertView = UIAlertView()
                                 alertView.title = "RSS Add Failed"
@@ -121,9 +124,9 @@ class RSSAddVC: UIViewController{
                                 alertView.delegate = self
                                 alertView.addButtonWithTitle("OK")
                                 alertView.show()
- 
+                                
                             }
-                               
+                            
                             
                         }
                     }else{
@@ -142,9 +145,8 @@ class RSSAddVC: UIViewController{
             alertView.show()
         }
     }
+}
 
-    }
-
-    // MARK: Funcation
-    // Request Solutions Viewed By User, Get History List
+// MARK: Funcation
+// Request Solutions Viewed By User, Get History List
   

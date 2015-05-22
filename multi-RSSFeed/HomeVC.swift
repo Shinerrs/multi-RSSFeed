@@ -14,7 +14,12 @@ class HomeVC: UIViewController, UITableViewDataSource{
     @IBOutlet var usernameLabel : UILabel!
     var tableData = [String]()
     var URLData = [String]()
+    var IDData = [String]()
     var selectOpt:String!
+    var editName:String!
+    var editUrl:String!
+    var editID:String!
+    var idToDelete:String!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     let textCellIdentifier = "TextCell"
     
@@ -68,7 +73,34 @@ class HomeVC: UIViewController, UITableViewDataSource{
         self.performSegueWithIdentifier("RSSFeedList", sender: self)
     }
     
+     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+        
+        var delete = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            let row = indexPath.row
+            self.idToDelete = self.IDData[row]
+            self.RemoveRSS();
+        })
+        delete.backgroundColor = UIColor.redColor()
+        
+        var edit = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Edit" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            let row = indexPath.row
+            self.editName = self.tableData[row]
+            self.editUrl = self.URLData[row]
+            self.editID = self.IDData[row]
+            self.performSegueWithIdentifier("RSSEdit", sender: self)
+        })
+        edit.backgroundColor = UIColor.blueColor()
+        
+        return [delete, edit]
+    }
     
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let row = indexPath.row
+            self.idToDelete = IDData[row]
+            RemoveRSS();
+        }
+    }
     
     // MARK: Funcation
     // Request Solutions Viewed By User, Get History List
@@ -130,7 +162,9 @@ class HomeVC: UIViewController, UITableViewDataSource{
                             println("jsonArray: \(jsonArray)")
                             dispatch_async(dispatch_get_main_queue()) {
                                 for var i:Int = 0; i < jsonArray.count; i++ {
+                                    var id:String = jsonArray[i].valueForKey("id") as String
                                     
+                                    self.IDData.append(id)
                                     var url:String = jsonArray[i].valueForKey("url") as String
                                     println(url)
                                     self.URLData.append(url)
@@ -162,10 +196,89 @@ class HomeVC: UIViewController, UITableViewDataSource{
             }
         }
     }
+    
+    func RemoveRSS(){
+        
+        var username = prefs.valueForKey("USERNAME") as String
+        var post:NSString = "id=\(idToDelete)&username=\(username)"
+        NSLog("PostData: %@",post);
+        var url:NSURL = NSURL(string: "http://zippy-meteor-60-226751.euw1.nitrousbox.com/removerss.php")!
+        var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+        
+        var postLength:NSString = String( postData.length )
+        
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.timeoutInterval = 30
+        request.HTTPMethod = "POST"
+        request.HTTPBody = postData
+        request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var reponseError: NSError?
+        var response: NSURLResponse?
+        
+        let queue:NSOperationQueue = NSOperationQueue()
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var err: NSError
+            let res = response as NSHTTPURLResponse!
+            
+            if (res.statusCode >= 200 && res.statusCode < 300)
+            {
+                
+                var error: NSError?
+                if var jsonArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as? NSDictionary {
+                    
+                    println("jsonArray: \(jsonArray)")
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        var success:Int = jsonArray.valueForKey("success") as Int
+                        if success == 1 {
+                            var alertView:UIAlertView = UIAlertView()
+                            alertView.title = "RSS Add Successfully"
+                            alertView.message = "The RSS Feed has been added to your account."
+                            alertView.delegate = self
+                            alertView.addButtonWithTitle("OK")
+                            alertView.show()
+                            
+                            
+                            
+                        }else{
+                            var alertView:UIAlertView = UIAlertView()
+                            alertView.title = "RSS Add Failed"
+                            alertView.message = "The RSS Feed has failed, please try again."
+                            alertView.delegate = self
+                            alertView.addButtonWithTitle("OK")
+                            alertView.show()
+                            
+                        }
+                        self.ReqData()
+                        self.rssTable.reloadData()
+                        
+                        
+                    }
+                }else{
+                    
+                }
+            }
+        })
+        
+    }
+
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         // Create a variable that you want to send
+        
+        if segue.identifier == "RSSEdit" {
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destinationViewController as RSSEditVC
+            
+            destinationVC.sID = self.editID
+            destinationVC.sName = self.editName
+            destinationVC.sUrl = self.editUrl
+        }
         
         if segue.identifier == "RSSFeedList" {
         // Create a new variable to store the instance of PlayerTableViewController

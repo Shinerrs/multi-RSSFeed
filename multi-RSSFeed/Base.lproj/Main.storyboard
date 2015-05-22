@@ -17,31 +17,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RSS Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-Pj-Xu0">
-                                <rect key="frame" x="139" y="107" width="71" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RSS Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-Pj-Xu0">
+                                <rect key="frame" x="46" y="72" width="229" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEL-Vo-C6p">
-                                <rect key="frame" x="31" y="185" width="259" height="322"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEL-Vo-C6p">
+                                <rect key="frame" x="31" y="134" width="259" height="166"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgC-Vs-Vb5">
+                                <rect key="frame" x="204" y="408" width="91" height="30"/>
+                                <color key="backgroundColor" red="0.16323792411871396" green="0.29994653867543197" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Read More">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KEL-Vo-C6p" firstAttribute="leading" secondItem="Uuo-6q-2Z0" secondAttribute="leadingMargin" id="8v9-Gp-kvD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KEL-Vo-C6p" secondAttribute="trailing" id="MYj-Ox-r35"/>
+                            <constraint firstItem="EA7-Pj-Xu0" firstAttribute="top" secondItem="Vt2-4v-sGS" secondAttribute="bottom" constant="8" id="NNG-ID-kMy"/>
+                            <constraint firstItem="KEL-Vo-C6p" firstAttribute="top" secondItem="Vt2-4v-sGS" secondAttribute="bottom" constant="70" id="Xkf-KL-apf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EA7-Pj-Xu0" secondAttribute="trailing" id="ZcH-sU-Nlv"/>
+                            <constraint firstItem="EA7-Pj-Xu0" firstAttribute="leading" secondItem="Uuo-6q-2Z0" secondAttribute="leadingMargin" id="pyF-wY-Dcb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="RSSFeed" id="c0N-Vn-Yqa"/>
                     <connections>
                         <outlet property="content" destination="KEL-Vo-C6p" id="kL6-Xz-rGM"/>
                         <outlet property="lbTitle" destination="EA7-Pj-Xu0" id="aec-yW-p32"/>
-                        <outlet property="title" destination="EA7-Pj-Xu0" id="kch-gv-1my"/>
+                        <segue destination="90m-C9-wDr" kind="push" id="nrg-07-f4h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRP-se-lbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="697"/>
+            <point key="canvasLocation" x="932" y="697"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5NK-Fd-HK2">
+            <objects>
+                <viewController id="90m-C9-wDr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kuR-1m-egE"/>
+                        <viewControllerLayoutGuide type="bottom" id="U0Z-tf-hGO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Iom-vn-tVO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyK-ZL-ykQ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xyK-ZL-ykQ" firstAttribute="top" secondItem="kuR-1m-egE" secondAttribute="bottom" id="302-DC-v6a"/>
+                            <constraint firstItem="U0Z-tf-hGO" firstAttribute="top" secondItem="xyK-ZL-ykQ" secondAttribute="bottom" id="RRb-nj-P1H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xyK-ZL-ykQ" secondAttribute="trailing" id="meX-im-pbJ"/>
+                            <constraint firstItem="xyK-ZL-ykQ" firstAttribute="leading" secondItem="Iom-vn-tVO" secondAttribute="leadingMargin" id="zba-kP-isG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ytN-tV-7VO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-yW-JWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309" y="692"/>
         </scene>
         <!--Home -->
         <scene sceneID="XgP-gy-H0X">
@@ -61,15 +108,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5X-Ij-YXE">
-                                <rect key="frame" x="227" y="90" width="57" height="30"/>
-                                <state key="normal" title="Remove">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tTO-mE-3Jf" kind="push" id="L1K-So-crT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-Wi-SFq">
                                 <rect key="frame" x="16" y="90" width="46" height="30"/>
                                 <state key="normal" title="Add">
@@ -106,7 +144,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.68573928809999996" green="0.88669281909999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="V5X-Ij-YXE" secondAttribute="trailing" constant="5" id="8D0-wD-MaZ"/>
                             <constraint firstItem="cEo-Wi-SFq" firstAttribute="leading" secondItem="T5u-kj-0wu" secondAttribute="leadingMargin" id="Nas-Y5-aAu"/>
                             <constraint firstItem="YWF-Wy-qNU" firstAttribute="leading" secondItem="T5u-kj-0wu" secondAttribute="leadingMargin" constant="5" id="Ngx-hl-0jT"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YWF-Wy-qNU" secondAttribute="bottom" id="Trr-xb-Rhh"/>
@@ -115,7 +152,6 @@
                             <constraint firstItem="cEo-Wi-SFq" firstAttribute="top" secondItem="ka1-Gf-lSA" secondAttribute="bottom" constant="6" id="nDm-Mj-8vn"/>
                             <constraint firstAttribute="centerX" secondItem="vzg-cb-v09" secondAttribute="centerX" constant="21.5" id="qBY-cn-rZV"/>
                             <constraint firstItem="YWF-Wy-qNU" firstAttribute="top" secondItem="cEo-Wi-SFq" secondAttribute="bottom" constant="10" id="rGC-2X-m3g"/>
-                            <constraint firstItem="V5X-Ij-YXE" firstAttribute="top" secondItem="ka1-Gf-lSA" secondAttribute="bottom" constant="6" id="uO7-0P-PDa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="l5V-3I-kaH">
@@ -138,6 +174,8 @@
                         <outlet property="usernameLabel" destination="vzg-cb-v09" id="Tzq-Eb-vkW"/>
                         <segue destination="mHk-lY-OJj" kind="modal" identifier="goto_login" id="QZU-j3-l46"/>
                         <segue destination="Gk0-fu-FYL" kind="push" identifier="RSSFeedList" id="ehX-jm-s2X"/>
+                        <segue destination="z5I-2i-mDR" kind="push" identifier="RSSFeedEdit" id="0JZ-zq-052"/>
+                        <segue destination="PBs-uV-dQR" kind="push" identifier="RSSEdit" id="lVN-kd-8Hi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dN9-5s-3eO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,11 +240,12 @@
                     <connections>
                         <outlet property="nameTF" destination="LXY-Wg-ioN" id="bn1-jw-x87"/>
                         <outlet property="urlTF" destination="W4F-tJ-qic" id="4EL-wQ-cLk"/>
+                        <outlet property="viewTitle" destination="8b6-6P-WXi" id="H2t-dE-1FV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ej-Zi-RQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="135"/>
+            <point key="canvasLocation" x="339" y="145"/>
         </scene>
         <!--Remove RSS-->
         <scene sceneID="Kx6-Eq-pLf">
@@ -245,7 +284,7 @@
                                     <outlet property="delegate" destination="tTO-mE-3Jf" id="Q0a-jh-noJ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a feed below to remove" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPZ-03-qLY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select a feed below to remove" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPZ-03-qLY">
                                 <rect key="frame" x="44" y="84" width="233" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -270,6 +309,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2e-xm-TNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="135"/>
+        </scene>
+        <!--Edit RSS Feed-->
+        <scene sceneID="98O-Yj-d8V">
+            <objects>
+                <viewController id="PBs-uV-dQR" customClass="RSSEditVC" customModule="multi_RSSFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FCb-Uf-yaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Npw-UA-pjK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wx8-5Z-iQd" customClass="RSSE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pa9-jQ-89z">
+                                <rect key="frame" x="93" y="161" width="174" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMN-mj-yF8">
+                                <rect key="frame" x="43" y="203" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1It-Mc-xZ3">
+                                <rect key="frame" x="93" y="199" width="174" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0s-EU-BPm">
+                                <rect key="frame" x="92" y="279" width="140" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.014348194809999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Save RSS Feed">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="EditButton:" destination="PBs-uV-dQR" eventType="touchUpInside" id="5Tf-BL-zso"/>
+                                    <action selector="SaveButton:" destination="z5I-2i-mDR" eventType="touchUpInside" id="66c-qM-IG9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit RSS Feed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0At-gd-qeI">
+                                <rect key="frame" x="105" y="124" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPT-xZ-UhS">
+                                <rect key="frame" x="43" y="165" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.63137254899999995" green="0.85882352939999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit RSS Feed" id="luK-7F-5tx"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="Pa9-jQ-89z" id="Taz-0N-bQ1"/>
+                        <outlet property="urlLabel" destination="1It-Mc-xZ3" id="Jaf-dN-I6h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBB-1p-Pat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="135"/>
         </scene>
         <!--List RSS Single Feed-->
         <scene sceneID="NCO-FI-5lw">
@@ -325,7 +429,7 @@
                     <navigationItem key="navigationItem" title="List RSS Single Feed" id="yje-AB-YLY"/>
                     <connections>
                         <outlet property="rssTable" destination="go6-Pf-N3d" id="40y-17-LDy"/>
-                        <segue destination="hOI-Mg-cGy" kind="push" identifier="RSSShow" id="ZVx-ck-0bF"/>
+                        <segue destination="hOI-Mg-cGy" kind="push" identifier="RSSShow" id="koY-Vz-tLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQu-to-Adn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,4 +699,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0JZ-zq-052"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,22 +1,16 @@
 //
-//  
+//  RSSWebViewVC.swift
 //  multi-RSSFeed
 //
-//  Created by Mark Shine on 16/04/2015.
+//  Created by Mark Shine on 22/05/2015.
 //  Copyright (c) 2015 Mark Shine. All rights reserved.
 //
+
 import UIKit
 
-class RSSDisplayVC: UIViewController{
+class RSSWebViewVC: UIViewController{
     
-    
-    var sTitle:String!
-    var sContent:String!
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var content: UILabel!
- 
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +26,7 @@ class RSSDisplayVC: UIViewController{
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_login", sender: self)
         } else {
-            println(self.sTitle)
-          lbTitle.text = self.sTitle
-          content.text = self.sContent
+           
         }
         
     }
@@ -43,4 +35,5 @@ class RSSDisplayVC: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }

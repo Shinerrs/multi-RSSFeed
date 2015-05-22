@@ -9,7 +9,7 @@
 
 import UIKit
 
-class RSSListVC: UIViewController, UITableViewDataSource{
+class RSSListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
     
@@ -26,6 +26,7 @@ class RSSListVC: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         rssTable.dataSource = self
+        rssTable.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -68,13 +69,14 @@ class RSSListVC: UIViewController, UITableViewDataSource{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        //self.selectOpt = indexPath.row as String
         println(self.selectOpt)
         let row = indexPath.row
-        //self.stitle = tableData[row]
-        //self.scontent = detail[row]
+
+        self.stitle = tableData[row]
+        self.scontent = detail[row]
+        
         self.performSegueWithIdentifier("RSSShow", sender: self)
+      
     }
     
     
@@ -172,7 +174,6 @@ class RSSListVC: UIViewController, UITableViewDataSource{
         }
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         // Create a variable that you want to send
@@ -180,10 +181,12 @@ class RSSListVC: UIViewController, UITableViewDataSource{
         if segue.identifier == "RSSShow" {
             // Create a new variable to store the instance of PlayerTableViewController
             let destinationVC = segue.destinationViewController as RSSDisplayVC
-            //destinationVC.sTitle = self.stitle
-            //destinationVC.sContent = self.scontent
+            destinationVC.sTitle = self.stitle
+            destinationVC.sContent = self.scontent
+            println("Segued! \(self.stitle)")
         }
     }
+   
     
     @IBAction func logoutTapped(sender : UIButton) {
         
