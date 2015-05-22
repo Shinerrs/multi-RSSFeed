@@ -10,11 +10,16 @@ import UIKit
 
 class RSSWebViewVC: UIViewController{
     
+    
+    @IBOutlet weak var webView: UIWebView!
+    var url:String!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let url = NSURL (string: self.url);
+        let requestObj = NSURLRequest(URL: url!);
+        webView.loadRequest(requestObj);
         // Do any additional setup after loading the view.
     }
     

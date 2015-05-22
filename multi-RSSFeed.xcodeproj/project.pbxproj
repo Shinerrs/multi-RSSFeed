@@ -11,8 +11,8 @@
 		E24172E71B0E9E6B0061EDDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24172E41B0E9E6B0061EDDE /* Main.storyboard */; };
 		E24172E91B0E9F4F0061EDDE /* RSSEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172E81B0E9F4F0061EDDE /* RSSEditVC.swift */; };
 		E24172EA1B0E9F4F0061EDDE /* RSSEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172E81B0E9F4F0061EDDE /* RSSEditVC.swift */; };
-		E24172EC1B0EAD890061EDDE /* RSSWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172EB1B0EAD890061EDDE /* RSSWebViewVC.swift */; };
-		E24172ED1B0EAD890061EDDE /* RSSWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172EB1B0EAD890061EDDE /* RSSWebViewVC.swift */; };
+		E24172EF1B0EAF2B0061EDDE /* RSSWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172EE1B0EAF2B0061EDDE /* RSSWebViewVC.swift */; };
+		E24172F01B0EAF2B0061EDDE /* RSSWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24172EE1B0EAF2B0061EDDE /* RSSWebViewVC.swift */; };
 		E29EE9561B0CA65E00A6A928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9551B0CA65E00A6A928 /* AppDelegate.swift */; };
 		E29EE9591B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E29EE9571B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld */; };
 		E29EE95B1B0CA65E00A6A928 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EE95A1B0CA65E00A6A928 /* ViewController.swift */; };
@@ -48,7 +48,7 @@
 /* Begin PBXFileReference section */
 		E24172E51B0E9E6B0061EDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E24172E81B0E9F4F0061EDDE /* RSSEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSEditVC.swift; sourceTree = "<group>"; };
-		E24172EB1B0EAD890061EDDE /* RSSWebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSWebViewVC.swift; sourceTree = "<group>"; };
+		E24172EE1B0EAF2B0061EDDE /* RSSWebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSWebViewVC.swift; sourceTree = "<group>"; };
 		E29EE9501B0CA65E00A6A928 /* multi-RSSFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "multi-RSSFeed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29EE9541B0CA65E00A6A928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E29EE9551B0CA65E00A6A928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 				E29EE9841B0CA70200A6A928 /* SignupVC.swift */,
 				E2E214761B0CF4B000F702AB /* RSSListVC.swift */,
 				E2E214791B0CFD3D00F702AB /* RSSDisplayVC.swift */,
+				E24172EE1B0EAF2B0061EDDE /* RSSWebViewVC.swift */,
 				E24172E41B0E9E6B0061EDDE /* Main.storyboard */,
 				E29EE97E1B0CA6E600A6A928 /* LoginVC.swift */,
 				E29EE95F1B0CA65E00A6A928 /* Images.xcassets */,
@@ -122,7 +123,6 @@
 				E29EE9571B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld */,
 				E29EE9531B0CA65E00A6A928 /* Supporting Files */,
 				E24172E81B0E9F4F0061EDDE /* RSSEditVC.swift */,
-				E24172EB1B0EAD890061EDDE /* RSSWebViewVC.swift */,
 			);
 			path = "multi-RSSFeed";
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 				E29EE95B1B0CA65E00A6A928 /* ViewController.swift in Sources */,
 				E29EE9821B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */,
 				E29EE97F1B0CA6E600A6A928 /* LoginVC.swift in Sources */,
-				E24172EC1B0EAD890061EDDE /* RSSWebViewVC.swift in Sources */,
+				E24172EF1B0EAF2B0061EDDE /* RSSWebViewVC.swift in Sources */,
 				E2E214771B0CF4B000F702AB /* RSSListVC.swift in Sources */,
 				E29EE9591B0CA65E00A6A928 /* multi_RSSFeed.xcdatamodeld in Sources */,
 				E24172E91B0E9F4F0061EDDE /* RSSEditVC.swift in Sources */,
@@ -277,7 +277,7 @@
 				E24172EA1B0E9F4F0061EDDE /* RSSEditVC.swift in Sources */,
 				E29EE96F1B0CA65F00A6A928 /* multi_RSSFeedTests.swift in Sources */,
 				E29EE9801B0CA6E600A6A928 /* LoginVC.swift in Sources */,
-				E24172ED1B0EAD890061EDDE /* RSSWebViewVC.swift in Sources */,
+				E24172F01B0EAF2B0061EDDE /* RSSWebViewVC.swift in Sources */,
 				E2E2147B1B0CFD3D00F702AB /* RSSDisplayVC.swift in Sources */,
 				E2E214751B0CF47500F702AB /* HomeVC.swift in Sources */,
 				E29EE9831B0CA6F800A6A928 /* RSSRemoveVC.swift in Sources */,

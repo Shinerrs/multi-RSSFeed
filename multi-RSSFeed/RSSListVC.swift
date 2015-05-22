@@ -17,11 +17,13 @@ class RSSListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet var usernameLabel : UILabel!
     var tableData = [String]()
     var detail = [String]()
+    var linkData = [String]()
     var selectOpt:String!
     var stitle:String!
     var scontent:String!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     let textCellIdentifier = "TextCell"
+    var sreadmore:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +76,7 @@ class RSSListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
         self.stitle = tableData[row]
         self.scontent = detail[row]
+        self.sreadmore = linkData[row]
         
         self.performSegueWithIdentifier("RSSShow", sender: self)
       
@@ -148,6 +151,9 @@ class RSSListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
                                         self.tableData.append(title)
                                         var content:String = jsonArray.valueForKeyPath("rss.channel.item:\(i).description") as String
                                         self.detail.append(content)
+                                        var link:String = jsonArray.valueForKeyPath("rss.channel.item:\(i).link") as String
+                                        self.linkData.append(link)
+                                        
                                         self.rssTable.reloadData()
                                     }
                                 }
@@ -183,6 +189,7 @@ class RSSListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             let destinationVC = segue.destinationViewController as RSSDisplayVC
             destinationVC.sTitle = self.stitle
             destinationVC.sContent = self.scontent
+            destinationVC.readMore = self.sreadmore
             println("Segued! \(self.stitle)")
         }
     }

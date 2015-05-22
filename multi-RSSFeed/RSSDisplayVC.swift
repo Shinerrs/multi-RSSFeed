@@ -12,6 +12,7 @@ class RSSDisplayVC: UIViewController{
     
     var sTitle:String!
     var sContent:String!
+    var readMore:String!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var content: UILabel!
  
@@ -39,6 +40,23 @@ class RSSDisplayVC: UIViewController{
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        // Create a variable that you want to send
+        
+        if segue.identifier == "RSSReadMore" {
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destinationViewController as RSSWebViewVC
+            
+            destinationVC.url = readMore
+            
+        }
+        
+    }
+    
+    @IBAction func ReadMoreTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("RSSReadMore", sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
