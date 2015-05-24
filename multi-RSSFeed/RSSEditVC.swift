@@ -116,7 +116,7 @@ class RSSEditVC: UIViewController{
                                 alertView.delegate = self
                                 alertView.addButtonWithTitle("OK")
                                 alertView.show()
-                                
+                                self.performSegueWithIdentifier("RSSEdited", sender: self)
                             }else{
                                 var alertView:UIAlertView = UIAlertView()
                                 alertView.title = "RSS Add Failed"

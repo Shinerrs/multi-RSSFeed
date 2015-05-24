@@ -113,6 +113,7 @@ class RSSAddVC: UIViewController{
                                 alertView.delegate = self
                                 alertView.addButtonWithTitle("OK")
                                 alertView.show()
+                                self.performSegueWithIdentifier("RSSAdded", sender: self)
  
                             }else{
                                 var alertView:UIAlertView = UIAlertView()

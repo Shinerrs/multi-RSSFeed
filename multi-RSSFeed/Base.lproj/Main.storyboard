@@ -286,6 +286,7 @@
                         <outlet property="nameTF" destination="LXY-Wg-ioN" id="bn1-jw-x87"/>
                         <outlet property="urlTF" destination="W4F-tJ-qic" id="4EL-wQ-cLk"/>
                         <outlet property="viewTitle" destination="8b6-6P-WXi" id="H2t-dE-1FV"/>
+                        <segue destination="Zoy-ap-umt" kind="modal" identifier="RSSAdded" id="5Ud-M9-BqJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ej-Zi-RQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,6 +378,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="Pa9-jQ-89z" id="Taz-0N-bQ1"/>
                         <outlet property="urlLabel" destination="1It-Mc-xZ3" id="Jaf-dN-I6h"/>
+                        <segue destination="Zoy-ap-umt" kind="modal" identifier="RSSEdited" id="aDw-Ru-sOM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBB-1p-Pat" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -712,5 +714,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="0JZ-zq-052"/>
+        <segue reference="aDw-Ru-sOM"/>
     </inferredMetricsTieBreakers>
 </document>

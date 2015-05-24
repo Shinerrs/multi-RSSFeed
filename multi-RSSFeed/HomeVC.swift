@@ -105,6 +105,7 @@ class HomeVC: UIViewController, UITableViewDataSource{
     func ReqData(){
         self.tableData = [String]()
         self.URLData = [String]()
+        self.IDData = [String]()
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_login", sender: self)
